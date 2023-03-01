@@ -1,12 +1,12 @@
 #include<stdio.h>
 
 int tab_torre(){
-    printf("Escogiste una torre");
+    printf("\nEscogiste una torre\n\n");
     return 0;
 }
 
 int tab_alfil(){
-    printf("Escogiste un alfil");
+    printf("\nEscogiste un alfil\n\n");
     return 0;
 }
 
@@ -14,19 +14,28 @@ int main(){
 
     int pieza;
 
-    printf("Programa que te da los posibles movimiento de una pieza de ajedres.\n");
+    printf("\nPrograma que te da los posibles movimiento de una pieza de ajedres.\n\n");
     printf("    Torre ....  1\n");
     printf("    Alfil ....  2\n");
-    printf("Escoja de que pieza saber sus movimientos: ");
+    printf("\nDe que pieza quieres saber sus posibles movimientos: ");
 
     scanf("%d", &pieza);
 
-    printf("%d\n", pieza);
+    switch(pieza){
 
-    if (pieza == 1){
+        case 1:
         tab_torre();
-    else 
+        break;
+
+        case 2:
         tab_alfil();
+        break;
+
+        default:
+        printf("Por favor escoge un numero valido\n");
+        printf("Programa finalizado\n\n");
+        break;
     }
+
    return 0;
 }
