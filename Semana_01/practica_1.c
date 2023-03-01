@@ -12,8 +12,7 @@ int tab_alfil(){
 
 int main(){
 
-    int tablero[8][8];
-    int pieza, alfil = 1, torre = 2;
+    int pieza;
 
     printf("Escoja que pieza saber sus movimientos: \n");
     pirntf("Torre ... 1");
