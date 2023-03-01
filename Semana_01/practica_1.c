@@ -19,9 +19,7 @@ int main(){
     printf("Alfil ... 2\n");
     scanf("%d", &pieza);
 
-    /*while pieza == 1{
-        tab_torre();
-    }*/
+    
 
     return 0;
 }
