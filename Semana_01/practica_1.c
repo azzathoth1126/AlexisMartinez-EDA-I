@@ -15,13 +15,13 @@ int main(){
     int pieza;
 
     printf("Escoja que pieza saber sus movimientos: \n");
-    pirntf("Torre ... 1");
-    printf("Alfil ... 2");
+    printf("Torre ... 1\n");
+    printf("Alfil ... 2\n");
     scanf("%d", &pieza);
 
-    while pieza == 1{
+    /*while pieza == 1{
         tab_torre();
-    }
+    }*/
 
     return 0;
 }
