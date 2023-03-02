@@ -20,6 +20,7 @@ int main(){
             //printf(" %i,%i ",tab_ajedrez[i][j], j);
             printf("|");
         }
+        printf("\n");
     }
 
     printf("\n");
