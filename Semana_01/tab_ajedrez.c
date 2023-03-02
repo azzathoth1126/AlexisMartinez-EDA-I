@@ -1,5 +1,4 @@
-// Proyecto que pinta el tablero de ajedrez 
-// 01.03.2023
+// Proyecto que pinta el tablero de ajedrez             01.03.2023
 
 #include<stdio.h>
 
@@ -23,8 +22,5 @@ int main(){
         printf("\n");
     }
 
-    printf("\n");
-
     return 0;
-
 }
