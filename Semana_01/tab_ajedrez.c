@@ -7,7 +7,7 @@ int main(){
     int tab_ajedrez[7][7];
     int i,j;
 
-    for (i=0; i<8; tab_ajedrez[i++][j]){
+    /*for (i=0; i<8; tab_ajedrez[i++][j]){
         printf("|");
         printf(" + ");
         //printf(" %i,%i ",tab_ajedrez[i][j], i);
@@ -18,6 +18,23 @@ int main(){
             printf(" + ");
             //printf(" %i,%i ",tab_ajedrez[i][j], j);
             printf("|");
+        }
+        printf("\n");
+    }*/
+
+    for (i=0; i<8; tab_ajedrez[i++][j]){
+        tab_ajedrez[i][j] = 0 ;
+
+        for (j=0; j<7; tab_ajedrez[i][j++]){
+            tab_ajedrez[i][j] = 0;
+        }
+    }
+
+    for (i=0; i<8; tab_ajedrez[i++][j]){
+        printf("%i", tab_ajedrez[i][j]);
+
+        for (j=0; j<7; tab_ajedrez[i][j++]){
+            printf("%i", tab_ajedrez[i][j]);
         }
         printf("\n");
     }

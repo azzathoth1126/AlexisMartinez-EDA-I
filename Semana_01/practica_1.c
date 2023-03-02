@@ -1,16 +1,21 @@
 #include<stdio.h>
 
+int tab_ajedres(){
+
+    return 0;
+}
+
 int tab_torre(){
-    
-    int tablero_ajedrez[8][8];
-    int fila = 0;
-    char columna = 0;
+
+    int fila; //fila
+    int colum; //columna
 
     printf("\nEscogiste una Torre\n\n");
     printf("Recuerda que el tablero de ajedrez de divide en columnas de la A a la H\n");
+    printf("En este caso La A va a ser igual que 1, la B igual que 2 y asi sucesivamenta hasta la H\n");
     printf("Recuerda que el tablero de ajedrez de divide en filas del numero 1 al 8\n");
 
-    printf("\nEn que fila de la 1 a la 8 quieres posicionar la torre: ");
+    printf("\nEn que fila de la 1 a la 8 quieres posicionar la torre?: ");
     scanf("%i", &fila);
 
     if (fila =! 1,2,3,4,5,6,7,8) {
@@ -20,8 +25,8 @@ int tab_torre(){
         
     }  
 
-    printf("\nEn que columna de la A a la H quieres posicionar la torre: ");
-    scanf("%s", &columna);
+    printf("\nEn que columna de la A a la H, en numero, quieres posicionar la torre?: ");
+    scanf("%i", &columna);
 
     printf("\n\n");
 
