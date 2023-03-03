@@ -1,39 +1,18 @@
 #include<stdio.h>
 
-void fn_tab_ajedrez(){
+void fun_1_imp_tab(){
 
-    int cont=0,cont2=0, i, j, tab_a[8][8];//variable tablero de ajedrez
-
-    //Imprime las coordenadas de las filas
-    printf("Filas   "); 
-    for(i=0; i<8; i++)
-        printf("%i ", (cont+=1));
-    printf("  Columnas\n\n");
+    int i, j, cont=0, cont2=0; //fila y columna
+    int tab_ajedrez[8][8];
 
     //Rellena el arreglo bidimensional con 0
-    for (i=0; i<8; tab_a[i++][j]){
-        tab_a[i][j] = 0;
-        for (j=0; j<9; tab_a[i][j++]){
+    for (i=0; i<8; tab_ajedrez[i++][j]){
+        tab_ajedrez[i][j] = 0;
+        for (j=0; j<9; tab_ajedrez[i][j++]){
             //printf("%i ", (cont2++));
-            tab_a[i][j] = 0;
+            tab_ajedrez[i][j] = 0;
         }
     }
-
-    //Imprime el arreglo
-    for (i=0; i<8; tab_a[i++][j]){
-        printf("\t");
-        printf("%i ", tab_a[i][j]);
-        for (j=0; j<7; tab_a[i][j++]){
-            printf("%i ", tab_a[i][j]);
-        }
-        printf("  %i", (cont2+=1)); //Coordenadas de las columnas
-        printf("\n");
-    }
-}
-
-int fn_tab_ajedrez_cor(k,l){
-    int i,j,k,l;
-    int tab_a[8][8];//variable tablero de ajedrez
 
     //Imprime las coordenadas de las filas
     printf("Filas   "); 
@@ -41,57 +20,71 @@ int fn_tab_ajedrez_cor(k,l){
         printf("%i ", (cont+=1));
     printf("  Columnas\n\n");
 
-    //Rellena el arreglo bidimensional con 0
-    for (i=0; i<8; tab_a[i++][j]){
-        if (i = k)
-            tab_a[i][j] = 1;
-        tab_a[i][j] = 0;
-        for (j=0; j<9; tab_a[i][j++]){
-            if (j = l)
-                tab_a[i][j] = 1;
-            tab_a[i][j] = 0;
-        }
-    }
-
     //Imprime el arreglo
-    for (i=0; i<8; tab_a[i++][j]){
+    for (i=0; i<8; tab_ajedrez[i++][j]){
         printf("\t");
-        printf("%i ", tab_a[i][j]);
-        for (j=0; j<7; tab_a[i][j++]){
-            printf("%i ", tab_a[i][j]);
+        printf("%i ", tab_ajedrez[i][j]);
+        for (j=0; j<7; tab_ajedrez[i][j++]){
+            printf("%i ", tab_ajedrez[i][j]);
         }
         printf("  %i", (cont2+=1)); //Coordenadas de las columnas
         printf("\n");
     }
-
 }
 
 int tab_torre(){
 
-    int fila, colm, i, j; //fila y columna
+    int fila=0, colm=0, fila2=0, colm2=0, cont=0, cont2=0, i=0, j=0; //fila y columna
     int tab_ajedrez[8][8];
 
-    printf("\nEscogiste una Torre\n\n");
-    fn_tab_ajedrez();
+    printf("\n\tEscogiste una Torre\n\n");
+    fun_1_imp_tab();
     printf("\nRecuerda que el tablero de ajedrez se divide en filas y columnas del 1 a la 8\n");
 
     //Pide las coordenadas para la pieza
     printf("\nEn que fila de la 1 a la 8 quieres posicionar la torre?: ");
-    scanf("%i", &fila);
-    while(fila<1 || fila>8){
+    scanf("%i", &fila2);
+    while(fila2<1 || fila2>8){
         printf("\nEscoge un valor valido: ");
-        scanf("%d", &fila);
+        scanf("%d", &fila2);
     }
 
     //Pide las coordenadas para la pieza
-    printf("\nEn que columna de la 1 a la 8 quieres posicionar la torre?: ");
-    scanf("%i", &colm);
-    while(colm<1 || colm>8){
-        printf("Escoge un valor valido: ");
-        scanf("%d", &colm);
+    printf("En que columna de la 1 a la 8 quieres posicionar la torre?: ");
+    scanf("%i", &colm2);
+    while(colm2<1 || colm2>8){
+        printf("\nEscoge un valor valido: ");
+        scanf("%d", &colm2);
+    }
+    printf("\n");
+
+    //Rellena el arreglo bidimensional con 0
+    for (i=0; i<8; tab_ajedrez[i++][j]){
+        tab_ajedrez[i][j] = 0;
+        for (j=0; j<9; tab_ajedrez[i][j++]){
+            tab_ajedrez[i][j] = 0;
+        }
+    }
+    //Introduce la pieza a las coordenadas escogidas
+    tab_ajedrez[i=colm2][j=fila2]=1;
+
+    //Imprime las coordenadas de las filas
+    printf("Filas   "); 
+    for(i=0; i<8; i++)
+        printf("%i ", (cont+=1));
+    printf("  Columnas\n\n");
+
+    //Imprime el arreglo
+    for (i=0; i<8; tab_ajedrez[i++][j]){
+        printf("\t");
+        printf("%i ", tab_ajedrez[i][j]);
+        for (j=0; j<7; tab_ajedrez[i][j++]){
+            printf("%i ", tab_ajedrez[i][j]);
+        }
+        printf("  %i", (cont2+=1)); //Coordenadas de las columnas
+        printf("\n");
     }
 
-    fn_tab_ajedrez_cor(fila,colm);
     printf("\n\n");
 
     return 0;
