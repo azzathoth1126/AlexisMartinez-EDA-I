@@ -2,35 +2,44 @@
 
 void fn_tab_ajedrez(){
 
-    int i=0, j=0;
-    int tab[8][8];//variable tablero de ajedrez
+    int cont=0,cont2=0, i, j, tab_a[8][8];//variable tablero de ajedrez
 
-    for (i=0; i<8; tab[i++][j]){
-        tab[i][j] = 0 ;
+    //Imprime las coordenadas de las filas
+    printf("Filas   "); 
+    for(i=0; i<8; i++)
+        printf("%i ", (cont+=1));
+    printf("  Columnas");
+    printf("\n\n");
 
-        for (j=0; j<7; tab[i][j++]){
-            tab[i][j] = 0;
+    //Rellena el arreglo bidimensional con 0
+    for (i=0; i<8; tab_a[i++][j]){
+        tab_a[i][j] = 0;
+        for (j=0; j<9; tab_a[i][j++]){
+            //printf("%i ", (cont2++));
+            tab_a[i][j] = 0;
         }
     }
 
-    for (i=0; i<8; tab[i++][j]){
-        printf("%i", tab[i][j]);
-
-        for (j=0; j<7; tab[i][j++]){
-            printf("%i", tab[i][j]);
+    //Imprime el arreglo
+    for (i=0; i<8; tab_a[i++][j]){
+        printf("\t");
+        printf("%i ", tab_a[i][j]);
+        for (j=0; j<7; tab_a[i][j++]){
+            printf("%i ", tab_a[i][j]);
         }
+        printf("  %i", (cont2+=1));
         printf("\n");
     }
 }
 
 int tab_torre(){
 
-    int fila, colm, i=0, j=0; //fila y columna
+    int fila, colm, i, j; //fila y columna
     int tab_ajedrez[8][8];
 
     printf("\nEscogiste una Torre\n\n");
     fn_tab_ajedrez();
-    printf("Recuerda que el tablero de ajedrez se divide en filas y columnas del 1 a la 8\n");
+    printf("\nRecuerda que el tablero de ajedrez se divide en filas y columnas del 1 a la 8\n");
 
     printf("\nEn que fila de la 1 a la 8 quieres posicionar la torre?: ");
     scanf("%i", &fila);
@@ -45,7 +54,7 @@ int tab_torre(){
         printf("Escoge un valor valido: ");
         scanf("%d", &colm);
     }
-    
+
     printf("\n\n");
 
     return 0;
@@ -81,6 +90,5 @@ int main(){
         printf("Programa finalizado\n\n");
         break;
     }
-
    return 0;
 }
