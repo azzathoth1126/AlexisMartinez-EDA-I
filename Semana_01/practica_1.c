@@ -8,8 +8,7 @@ void fn_tab_ajedrez(){
     printf("Filas   "); 
     for(i=0; i<8; i++)
         printf("%i ", (cont+=1));
-    printf("  Columnas");
-    printf("\n\n");
+    printf("  Columnas\n\n");
 
     //Rellena el arreglo bidimensional con 0
     for (i=0; i<8; tab_a[i++][j]){
@@ -27,7 +26,7 @@ void fn_tab_ajedrez(){
         for (j=0; j<7; tab_a[i][j++]){
             printf("%i ", tab_a[i][j]);
         }
-        printf("  %i", (cont2+=1));
+        printf("  %i", (cont2+=1)); //Coordenadas de las columnas
         printf("\n");
     }
 }
