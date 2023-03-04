@@ -132,7 +132,10 @@ int tab_alfil(){
 
 
     //Movimientos disponibles
-
+    while (x>=1) tab_ajedrez[x--][y--] = 3;
+    while (x<8) tab_ajedrez[x++][y++] = 3;
+    while (b>=1) tab_ajedrez[a--][b--] = 3;
+    while (b<8) tab_ajedrez[a++][b++] = 3;  
 
 
     /*Imprime el arreglo con la pieza en el tablero*/
