@@ -67,7 +67,6 @@ int tab_torre(){
     tab_ajedrez[i][j] = 1;
     int x = i, y = j;
     int a = x, b = y;
-    int n,m;
     
 
     //Movimientos posibles
@@ -127,15 +126,14 @@ int tab_alfil(){
     i = --colm2; j = (fila2-=2);
     tab_ajedrez[i][j] = 2;
     int x = i, y = j;
-    int a = x, b = y;
-    int n,m;
+    int n = x, m = y;
 
 
     //Movimientos disponibles
     while (x>=1) tab_ajedrez[x--][y--] = 3;
     while (x<8) tab_ajedrez[x++][y++] = 3;
-    while (b>=1) tab_ajedrez[a--][b--] = 3;
-    while (b<8) tab_ajedrez[a++][b++] = 3;  
+    while (m>=1) tab_ajedrez[n--][m--] = 3;
+    while (m<8) tab_ajedrez[n++][m++] = 3;  
 
 
     /*Imprime el arreglo con la pieza en el tablero*/
