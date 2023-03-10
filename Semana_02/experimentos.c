@@ -6,8 +6,8 @@ int main() {
     int *(*apt);
     apt = arreglo1;
 
-    for(int a=0; a<8; a++){
-        for(int b=0; b<8; b++)
+    for(int a=0; a<8; *(*(apt+(a++)))){
+        for(int b=0; b<8; *(*apt+(b++)))
             arreglo1[a][b] = 0;
     }
 
