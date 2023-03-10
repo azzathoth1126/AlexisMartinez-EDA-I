@@ -1,17 +1,40 @@
-#include<stdio.h>
+#include <stdio.h>
 
-voitd main(){
+int main(){
+    /*int *ap, indice;
+    int nums[3][3] = {{99,88,77}, {66,55,44}, {33,22,11}};
+    ap = nums;
 
-    int i, j, cont=0, cont2=0; //fila y columna
+    for(indice = 0; indice < 9; indice++){
+        if((indice%3)==0){
+            printf("\n");
+        }
+        printf("%x\t", (ap+indice));
+    }
+
+    printf("\n\n");*/
+
+    int i, j;//fila y columna
     int tab_ajedrez[8][8];
-    int *pta;
-    pta = tab_ajedrez;
+    int *ap;
+    ap = &tab_ajedrez;
 
-    for(i=0; i<8; i++){
-        pta[&i][&j] = 0;
+    /*Rellena el arreglo bidimensional con 0*/
+    for (i=0; i<8; i++){
+        *(*ap) = 0;
+        for (j=0; j<9; j++){
+            *(*ap)=0
+            *(*ap++);
+        }
+        *(*(ap++));
     }
 
     for(i=0; i<8; i++){
-        printf("%d", *pta[i][j]);
+        printf("%d", tab_ajedrez[i][j]);
+        for(j=0; j<8; j++){
+           printf("%d", tab_ajedrez[i][j]); 
+        }
     }
+
+    return 0;
 }
