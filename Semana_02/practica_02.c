@@ -40,7 +40,30 @@ void king(){
 
 int main(){
 
-    tablero_vacio();
+    int pieza;
 
-    return 0;
+    printf("\nPrograma que te da los posibles movimiento de una pieza de ajedrez.\n\n");
+    tablero_vacio();
+    printf("\nPiezas disponibles\n\n");
+    printf("\t--->  Reina ....  1\n");
+    printf("\t--->  Rey   ....  2\n\n");
+
+    printf("De que pieza quieres saber sus posibles movimientos: ");
+    scanf("%d", &pieza);
+
+    switch(pieza){
+        case 1:
+        queen();
+        break;
+
+        case 2:
+        king();
+        break;
+
+        default:
+        printf("\n\tPor favor escoge un numero valido\n");
+        printf("\n\tPrograma finalizado\n\n");
+        break;
+    }
+   return 0;
 }
