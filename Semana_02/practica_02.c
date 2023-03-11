@@ -19,18 +19,18 @@ int mov_q(int fila, int columna){
     int x1 = a, x2 = a;
     int y1 = b, y2 = b;
     
-    while (x1>=0) arreglo1[--x1][b] = 3;
-    while (x2<8) arreglo1[++x2][b] = 3;
-    while (y1>=1) arreglo1[a][--y1] = 3;
-    while (y2<7) arreglo1[a][++y2] = 3;
+    while (x1>=0) arreglo1[--x1][b] = 8;
+    while (x2<8) arreglo1[++x2][b] = 8;
+    while (y1>=1) arreglo1[a][--y1] = 8;
+    while (y2<7) arreglo1[a][++y2] = 8;
 
     int x3 = a, x4 = a, x5 = a, x6 = a;
     int b3 = b, b4 = b, b5 = b, b6 = b;
     
-    while (x3>=0) arreglo1[--x3][++b3] = 3;
-    while (x4<8) arreglo1[++x4][--b4] = 3;
-    while (b5>=1) arreglo1[--x5][--b5] = 3;
-    while (b6<7) arreglo1[++x6][++b6] = 3;
+    while (x3>=0) arreglo1[--x3][++b3] = 8;
+    while (x4<8) arreglo1[++x4][--b4] = 8;
+    while (b5>=1) arreglo1[--x5][--b5] = 8;
+    while (b6<7) arreglo1[++x6][++b6] = 8;
 
     //Imprime el tablero con las jugadas disponibles
     printf("\n\t");
