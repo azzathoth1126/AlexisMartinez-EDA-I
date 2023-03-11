@@ -1,5 +1,33 @@
 #include<stdio.h>
 
+void tablero_vacio(){
+
+    int i, j, c1=0, c2=0; //fila y columna
+    int tab_ajedrez[8][8];
+
+    /*Rellena el arreglo bidimensional con 0*/
+    for (i=0; i<8; tab_ajedrez[i++][j]){
+        for (j=0; j<9; tab_ajedrez[i][j++])
+            tab_ajedrez[i][j] = 0;
+    }
+
+    //Imprime las coordenadas de las filas 
+    printf("Filas   ");
+    for(i=0; i<8; i++)
+        printf("%i ", (c1+=1));
+    printf("  Columnas\n\n");
+
+    //Imprime el tablero
+    for (i=0; i<8; tab_ajedrez[i++][j]){
+        printf("\t");
+        for (j=0; j<8; tab_ajedrez[i][j++])
+            printf("%i ", tab_ajedrez[i][j]);
+
+        //Imprime las coordenadas de las columnas
+        printf("  %i\n", (c2+=1));
+    }
+}
+
 int mov_q(int fila, int columna){
 
     int arreglo1[8][8], a, b;
@@ -46,7 +74,7 @@ int mov_q(int fila, int columna){
 
 int mov_k(int fila, int columna){
 
-    int arreglo1[8][8], a, b, pz = 1;
+    int arreglo1[8][8], a, b;
     int *(*apt);
     apt = arreglo1;
 
@@ -57,8 +85,24 @@ int mov_k(int fila, int columna){
     }
 
     //Introduciendo la pieza en el tablero
-    b = --fila; a = --columna;
-    arreglo1[b][a] = pz;
+    a = --fila; b = --columna;
+    arreglo1[a][b] = 1;
+
+    int x1 = a, x2 = a;
+    int y1 = b, y2 = b;
+    
+    if (x1>=0) arreglo1[--x1][b] = 8;
+    if (x2<8) arreglo1[++x2][b] = 8;
+    if (y1>=1) arreglo1[a][--y1] = 8;
+    if (y2<7) arreglo1[a][++y2] = 8;
+
+    int x3 = a, x4 = a, x5 = a, x6 = a;
+    int b3 = b, b4 = b, b5 = b, b6 = b;
+    
+    if (x3>=0) arreglo1[--x3][++b3] = 8;
+    if (x4<8) arreglo1[++x4][--b4] = 8;
+    if (b5>=1) arreglo1[--x5][--b5] = 8;
+    if (b6<7) arreglo1[++x6][++b6] = 8;
 
     //Imprime el tablero con las jugadas disponibles
     printf("\n\t");
@@ -69,36 +113,8 @@ int mov_k(int fila, int columna){
     }
     printf("\n");
 
-    
+    return 0;    
 } 
-
-void tablero_vacio(){
-
-    int i, j, c1=0, c2=0; //fila y columna
-    int tab_ajedrez[8][8];
-
-    /*Rellena el arreglo bidimensional con 0*/
-    for (i=0; i<8; tab_ajedrez[i++][j]){
-        for (j=0; j<9; tab_ajedrez[i][j++])
-            tab_ajedrez[i][j] = 0;
-    }
-
-    //Imprime las coordenadas de las filas 
-    printf("Filas   ");
-    for(i=0; i<8; i++)
-        printf("%i ", (c1+=1));
-    printf("  Columnas\n\n");
-
-    //Imprime el tablero
-    for (i=0; i<8; tab_ajedrez[i++][j]){
-        printf("\t");
-        for (j=0; j<8; tab_ajedrez[i][j++])
-            printf("%i ", tab_ajedrez[i][j]);
-
-        //Imprime las coordenadas de las columnas
-        printf("  %i\n", (c2+=1));
-    }
-}
 
 void c_queen(){
 
