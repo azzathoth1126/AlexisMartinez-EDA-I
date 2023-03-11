@@ -2,7 +2,7 @@
 
 int mov_q(int fila, int columna){
 
-    int arreglo1[8][8], a, b, pz = 1;
+    int arreglo1[8][8], a, b;
     int *(*apt);
     apt = arreglo1;
 
@@ -13,11 +13,24 @@ int mov_q(int fila, int columna){
     }
 
     //Introduciendo la pieza en el tablero
-    b = --fila; a = --columna;
-    arreglo1[b][a] = pz;
-    int a1= b, b1=a;
+    a = --fila; b = --columna;
+    arreglo1[a][b] = 1;
 
-    while()
+    int x1 = a, x2 = a;
+    int y1 = b, y2 = b;
+    
+    while (x1>=0) arreglo1[--x1][b] = 3;
+    while (x2<8) arreglo1[++x2][b] = 3;
+    while (y1>=1) arreglo1[a][--y1] = 3;
+    while (y2<7) arreglo1[a][++y2] = 3;
+
+    int x3 = a, x4 = a, x5 = a, x6 = a;
+    int b3 = b, b4 = b, b5 = b, b6 = b;
+    
+    while (x3>=0) arreglo1[--x3][++b3] = 3;
+    while (x4<8) arreglo1[++x4][--b4] = 3;
+    while (b5>=1) arreglo1[--x5][--b5] = 3;
+    while (b6<7) arreglo1[++x6][++b6] = 3;
 
     //Imprime el tablero con las jugadas disponibles
     printf("\n\t");
@@ -28,7 +41,7 @@ int mov_q(int fila, int columna){
     }
     printf("\n");
 
-    
+    return 0;
 }
 
 int mov_k(int fila, int columna){
@@ -94,7 +107,7 @@ void c_queen(){
     printf("\n\n\t\"Escogiste la reina\"\n\n");
 
     //Coordenadas de la columna
-    printf("\nDime en que columna (1 a 8) quieres colocar a la reina: ");
+    printf("\nDime en que fila quieres colocar a la Reina: ");
     scanf("%d", &columna);
     while(columna<1 || columna>8){
         printf("Escoge un valor valido: ");
@@ -102,7 +115,7 @@ void c_queen(){
     }
     
     //Coordenadas de la fila
-    printf("Dime en que fila (1 a 8) quieres colocar a la reina: ");
+    printf("Dime en que columna quieres colocar a la Reina: ");
     scanf("%d", &fila);
     while(fila<1 || fila>8){
         printf("Escoge un valor valido: ");
@@ -119,7 +132,7 @@ void c_king(){
     printf("\n\n\t\"Escogiste el rey\"\n\n");
 
     //Coordenadas de la columna
-    printf("\nDime en que columna (1 a 8) quieres colocar al Rey: ");
+    printf("\nDime en que fila (1 a 8) quieres colocar al Rey: ");
     scanf("%d", &columna);
     while(columna<1 || columna>8){
         printf("Escoge un valor valido: ");
@@ -127,7 +140,7 @@ void c_king(){
     }
     
     //Coordenadas de la fila
-    printf("Dime en que fila (1 a 8) quieres colocar al Rey: ");
+    printf("Dime en que columna (1 a 8) quieres colocar al Rey: ");
     scanf("%d", &fila);
     while(fila<1 || fila>8){
         printf("Escoge un valor valido: ");

@@ -7,8 +7,7 @@ int fun_imp_tab(){
 
     /*Rellena el arreglo bidimensional con 0*/
     for (i=0; i<8; tab_ajedrez[i++][j]){
-        tab_ajedrez[i][j] = 0;
-        for (j=0; j<9; tab_ajedrez[i][j++]){
+        for (j=0; j<8; tab_ajedrez[i][j++]){
             //printf("%i ", (cont2++));
             tab_ajedrez[i][j] = 0;
         }
@@ -20,8 +19,8 @@ int fun_imp_tab(){
         printf("%i ", (cont+=1));
     printf("  Columnas\n\n");
     for (i=0; i<8; tab_ajedrez[i++][j]){
-        printf("\t%i ", tab_ajedrez[i][j]);
-        for (j=0; j<7; tab_ajedrez[i][j++]){
+        printf("\t");
+        for (j=0; j<8; tab_ajedrez[i][j++]){
             printf("%i ", tab_ajedrez[i][j]);
         }
         printf("  %i", (cont2+=1)); //Coordenadas de las columnas
@@ -39,7 +38,6 @@ int tab_torre(){
 
     //Llena el arreglo con 0
     for (i=0; i<8; tab_ajedrez[i++][j]){
-        tab_ajedrez[i][j] = 0;
         for (j=0; j<9; tab_ajedrez[i][j++]){
             tab_ajedrez[i][j] = 0;
         }
@@ -70,16 +68,15 @@ int tab_torre(){
     
 
     //Movimientos posibles
-    while (x>=1) tab_ajedrez[x--][y] = 3;
-    while (x<8) tab_ajedrez[x++][y] = 3;
-    while (b>=1) tab_ajedrez[a][b--] = 3;
-    while (b<8) tab_ajedrez[a][b++] = 3;    
+    while (x>=1) tab_ajedrez[--x][y] = 3;
+    while (x<8) tab_ajedrez[++x][y] = 3;
+    while (b>=1) tab_ajedrez[a][--b] = 3;
+    while (b<8) tab_ajedrez[a][++b] = 3;    
 
 
     /*Imprime el arreglo con la pieza en el tablero*/
     tab_ajedrez[i][j] = 1; cont=0; cont2=0;
     for (i=0; i<8; tab_ajedrez[i++][j]){
-        printf("\t%i ", tab_ajedrez[i][j]);
         for (j=0; j<7; tab_ajedrez[i][j++]){
             printf("%i ", tab_ajedrez[i][j]);
         }
@@ -99,7 +96,6 @@ int tab_alfil(){
 
     //Llena el arreglo con 0
     for (i=0; i<8; tab_ajedrez[i++][j]){
-        tab_ajedrez[i][j] = 0;
         for (j=0; j<9; tab_ajedrez[i][j++]){
             tab_ajedrez[i][j] = 0;
         }
@@ -130,16 +126,15 @@ int tab_alfil(){
 
 
     //Movimientos disponibles
-    while (x>=1) tab_ajedrez[x--][y--] = 3;
-    while (x<8) tab_ajedrez[x++][y++] = 3;
-    while (n>=1) tab_ajedrez[m++][n--] = 3;
-    while (n<8) tab_ajedrez[m--][n++] = 3;  
+    while (x>=1) tab_ajedrez[--x][--y] = 3;
+    while (x<8) tab_ajedrez[++x][++y] = 3;
+    while (n>=1) tab_ajedrez[++m][n--] = 3;
+    while (n<8) tab_ajedrez[--m][++n] = 3;  
 
 
     /*Imprime el arreglo con la pieza en el tablero*/
     tab_ajedrez[i][j] = 1; cont=0; cont2=0;
     for (i=0; i<8; tab_ajedrez[i++][j]){
-        printf("\t%i ", tab_ajedrez[i][j]);
         for (j=0; j<7; tab_ajedrez[i][j++]){
             printf("%i ", tab_ajedrez[i][j]);
         }
