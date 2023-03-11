@@ -1,5 +1,64 @@
 #include<stdio.h>
 
+int mov_q(int fila, int columna){
+
+    int arreglo1[8][8], a, b, pz = 1;
+    int *(*apt);
+    apt = arreglo1;
+
+    //Rellena el arreglo con ceros
+    for(int a=0; a<8; *(*(apt+(a++))+0)){
+        for(int b=0; b<8; *(*apt+0)+(b++))
+            arreglo1[a][b] = 0;
+    }
+
+    //Introduciendo la pieza en el tablero
+    b = --fila; a = --columna;
+    arreglo1[b][a] = pz;
+    int a1= b, b1=a;
+
+    while()
+
+    //Imprime el tablero con las jugadas disponibles
+    printf("\n\t");
+    for(int i=0; i<8; *(*(apt+(i++)))){
+        for(int j=0; j<8; *(*apt+(j++)))
+            printf("%d ", arreglo1[i][j]);//*apt
+        printf("\n\t");
+    }
+    printf("\n");
+
+    
+}
+
+int mov_k(int fila, int columna){
+
+    int arreglo1[8][8], a, b, pz = 1;
+    int *(*apt);
+    apt = arreglo1;
+
+    //Rellena el arreglo con ceros
+    for(int a=0; a<8; *(*(apt+(a++))+0)){
+        for(int b=0; b<8; *(*apt+0)+(b++))
+            arreglo1[a][b] = 0;
+    }
+
+    //Introduciendo la pieza en el tablero
+    b = --fila; a = --columna;
+    arreglo1[b][a] = pz;
+
+    //Imprime el tablero con las jugadas disponibles
+    printf("\n\t");
+    for(int i=0; i<8; *(*(apt+(i++)))){
+        for(int j=0; j<8; *(*apt+(j++)))
+            printf("%d ", arreglo1[i][j]);//*apt
+        printf("\n\t");
+    }
+    printf("\n");
+
+    
+} 
+
 void tablero_vacio(){
 
     int i, j, c1=0, c2=0; //fila y columna
@@ -24,17 +83,58 @@ void tablero_vacio(){
             printf("%i ", tab_ajedrez[i][j]);
 
         //Imprime las coordenadas de las columnas
-        printf("  %i", (c2+=1));
-        printf("\n");
+        printf("  %i\n", (c2+=1));
     }
 }
 
-void queen(){
+void c_queen(){
 
+    int fila, columna;
+
+    printf("\n\n\t\"Escogiste la reina\"\n\n");
+
+    //Coordenadas de la columna
+    printf("\nDime en que columna (1 a 8) quieres colocar a la reina: ");
+    scanf("%d", &columna);
+    while(columna<1 || columna>8){
+        printf("Escoge un valor valido: ");
+        scanf("%d", &columna); 
+    }
+    
+    //Coordenadas de la fila
+    printf("Dime en que fila (1 a 8) quieres colocar a la reina: ");
+    scanf("%d", &fila);
+    while(fila<1 || fila>8){
+        printf("Escoge un valor valido: ");
+        scanf("%d", &fila); 
+    }
+
+    mov_q(fila,columna);
 }
 
-void king(){
+void c_king(){
 
+    int fila, columna;
+
+    printf("\n\n\t\"Escogiste el rey\"\n\n");
+
+    //Coordenadas de la columna
+    printf("\nDime en que columna (1 a 8) quieres colocar al Rey: ");
+    scanf("%d", &columna);
+    while(columna<1 || columna>8){
+        printf("Escoge un valor valido: ");
+        scanf("%d", &columna); 
+    }
+    
+    //Coordenadas de la fila
+    printf("Dime en que fila (1 a 8) quieres colocar al Rey: ");
+    scanf("%d", &fila);
+    while(fila<1 || fila>8){
+        printf("Escoge un valor valido: ");
+        scanf("%d", &fila); 
+    }
+
+    mov_k(fila,columna);
 }
 
 int main(){
@@ -52,11 +152,11 @@ int main(){
 
     switch(pieza){
         case 1:
-        queen();
+        c_queen();
         break;
 
         case 2:
-        king();
+        c_king();
         break;
 
         default:
