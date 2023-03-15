@@ -103,17 +103,16 @@ void fTorre(){
 
     torre.a = torre.ccol; 
     torre.b = torre.cfi;
-    //printf("torre.cfi=%d torre.ccol=%d\n", torre.cfi, torre.ccol);
-    //printf("torre.a=%d torre.b=%d\n", torre.a, torre.b);
-
     torre.tAjedrez[--torre.a][--torre.b] = 1;
  
     for(int i=0; torre.a>=0; i++) torre.tAjedrez[--torre.a][torre.b] =3;
     torre.a = torre.ccol; 
+
     for(int i=0; torre.a<8; i++) torre.tAjedrez[++torre.a][torre.b] =3;
 
     //for(int i=0; torre.b>0; i++) torre.tAjedrez[torre.a][--torre.b] =3;
-    torre.b = torre.cfi;
+    //torre.b = torre.cfi;
+
     //for(int i=0; torre.b<7; i++) torre.tAjedrez[torre.a][++torre.b] =3;
 
     torre.a = torre.ccol; 
