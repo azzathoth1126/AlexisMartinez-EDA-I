@@ -1,41 +1,14 @@
 #include<stdio.h>
 
 struct { //Estructura que contiene las coordenadas para las piezas
-    int cfi;
-    int ccol;
+    int tAjedrez[8][8]; //Tablero de ajedrez
+    int cfi;   //Fila
+    int ccol;  //Columna
+    int a, b;  //Variables para cambiar
 }torre, caballo, alfil, rey, reina;
 
-//Arreglar para imprimir con apuntadores
-void fTabVacio(){
-    int i, j, c1=0, c2=0; //fila y columna
-    int tAjedrez[8][8];
-    int *(*ap);
-    ap = &tAjedrez;
-
-    /*Rellena el arreglo bidimensional con 0*/
-    for (i=0; i<8; tAjedrez[i++][j]){
-        for (j=0; j<9; tAjedrez[i][j++])
-            tAjedrez[i][j] = 0;
-    }
-
-    //Imprime las coordenadas de las filas 
-    printf("Filas   ");
-    for(i=0; i<8; i++)
-        printf("%i ", (c1+=1));
-    printf("  Columnas\n\n");
-
-    //Imprime el tablero
-    for (i=0; i<8; tAjedrez[i++][j]){
-        printf("\t");
-        for (j=0; j<8; tAjedrez[i][j++])
-            printf("%i ", tAjedrez[i][j]);
-
-        //Imprime las coordenadas de las columnas
-        printf("  %i\n", (c2+=1));
-    }
-}
-
-
+//Declaracion de estructuras
+void fTabVacio();
 void fTorre();
 void fAlfil();
 void fCaballo();
@@ -90,6 +63,37 @@ int main(){ //Programa principal
 }
 
 
+//Arreglar para imprimir con apuntadores
+void fTabVacio(){
+    int i, j, c1=0, c2=0; //fila y columna
+    int tAjedrez[8][8];
+    int *(*ap);
+    ap = &tAjedrez;
+
+    /*Rellena el arreglo bidimensional con 0*/
+    for (i=0; i<8; tAjedrez[i++][j]){
+        for (j=0; j<9; tAjedrez[i][j++])
+            tAjedrez[i][j] = 0;
+    }
+
+    //Imprime las coordenadas de las filas 
+    printf("Filas   ");
+    for(i=0; i<8; i++)
+        printf("%i ", (c1+=1));
+    printf("  Columnas\n\n");
+
+    //Imprime el tablero
+    for (i=0; i<8; tAjedrez[i++][j]){
+        printf("\t");
+        for (j=0; j<8; tAjedrez[i][j++])
+            printf("%i ", tAjedrez[i][j]);
+
+        //Imprime las coordenadas de las columnas
+        printf("  %i\n", (c2+=1));
+    }
+}
+
+
 void fTorre(){
 
     printf("\n\tEscogiste la pieza \"Torre\" \n\n");
@@ -97,8 +101,30 @@ void fTorre(){
     printf("\n\tFila: "); scanf("%d", &torre.cfi);
     printf("\tColumna: "); scanf("%d", &torre.ccol);
 
-    printf("%d %d", torre.cfi, torre.ccol);
-};
+    torre.a = torre.cfi; 
+    torre.b = torre.ccol;
+    //printf("torre.cfi=%d torre.ccol=%d\n", torre.cfi, torre.ccol);
+    //printf("torre.a=%d torre.b=%d\n", torre.a, torre.b);
+
+    torre.tAjedrez[--torre.b][--torre.a] = 1;
+ 
+    for(int i=0; torre.b>=0; i++) torre.tAjedrez[--torre.a][torre.b] =3;
+    torre.b = torre.cfi; 
+    //for(int i=0; torre.b<8; i++) torre.tAjedrez[++torre.a][torre.b] =3;
+
+    //for(int i=0; torre.b>0; i++) torre.tAjedrez[torre.a][++torre.b] =3;
+    torre.b = torre.ccol;
+    //for(int i=0; torre.b<7; i++) torre.tAjedrez[torre.a][--torre.b] =3;
+
+    printf("\n");
+    
+    for(int x=0; x<8; x++){
+        for(int y=0; y<8; y++) printf("%d ", torre.tAjedrez[x][y]);
+        printf("\n");
+    }
+
+    printf("\n");
+}
 
 
 void fAlfil(){
@@ -107,7 +133,7 @@ void fAlfil(){
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &alfil.cfi);
     printf("\tColumna: "); scanf("%d", &alfil.ccol);
-};
+}
 
 
 void fCaballo(){
@@ -116,7 +142,7 @@ void fCaballo(){
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &caballo.cfi);
     printf("\tColumna: "); scanf("%d", &caballo.ccol);
-};
+}
 
 
 void fReina(){
@@ -125,7 +151,7 @@ void fReina(){
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &reina.cfi);
     printf("\tColumna: "); scanf("%d", &reina.ccol);
-};
+}
 
 
 void fRey(){
@@ -134,4 +160,4 @@ void fRey(){
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &rey.cfi);
     printf("\tColumna: "); scanf("%d", &rey.ccol);
-};
+}
