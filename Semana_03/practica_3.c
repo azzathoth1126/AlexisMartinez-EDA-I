@@ -101,23 +101,27 @@ void fTorre(){
     printf("\n\tFila: "); scanf("%d", &torre.cfi);
     printf("\tColumna: "); scanf("%d", &torre.ccol);
 
-    torre.a = torre.cfi; 
-    torre.b = torre.ccol;
+    torre.a = torre.ccol; 
+    torre.b = torre.cfi;
     //printf("torre.cfi=%d torre.ccol=%d\n", torre.cfi, torre.ccol);
     //printf("torre.a=%d torre.b=%d\n", torre.a, torre.b);
 
-    torre.tAjedrez[--torre.b][--torre.a] = 1;
+    torre.tAjedrez[--torre.a][--torre.b] = 1;
  
-    for(int i=0; torre.b>=0; i++) torre.tAjedrez[--torre.a][torre.b] =3;
-    torre.b = torre.cfi; 
-    //for(int i=0; torre.b<8; i++) torre.tAjedrez[++torre.a][torre.b] =3;
+    for(int i=0; torre.a>=0; i++) torre.tAjedrez[--torre.a][torre.b] =3;
+    torre.a = torre.ccol; 
+    for(int i=0; torre.a<8; i++) torre.tAjedrez[++torre.a][torre.b] =3;
 
-    //for(int i=0; torre.b>0; i++) torre.tAjedrez[torre.a][++torre.b] =3;
-    torre.b = torre.ccol;
-    //for(int i=0; torre.b<7; i++) torre.tAjedrez[torre.a][--torre.b] =3;
+    //for(int i=0; torre.b>0; i++) torre.tAjedrez[torre.a][--torre.b] =3;
+    torre.b = torre.cfi;
+    //for(int i=0; torre.b<7; i++) torre.tAjedrez[torre.a][++torre.b] =3;
+
+    torre.a = torre.ccol; 
+    torre.b = torre.cfi;
+    torre.tAjedrez[--torre.a][--torre.b] = 1;
 
     printf("\n");
-    
+
     for(int x=0; x<8; x++){
         for(int y=0; y<8; y++) printf("%d ", torre.tAjedrez[x][y]);
         printf("\n");
