@@ -92,45 +92,46 @@ int main(){ //Programa principal
 
 void fTorre(){
 
-    printf("Escogiste la pieza \"Torre\" \n\n");
+    printf("\n\tEscogiste la pieza \"Torre\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
-    printf("Fila: "); scanf("%d", &torre.cfi);
-    printf("Columna: "); scanf("%d", &torre.ccol);
+    printf("\n\tFila: "); scanf("%d", &torre.cfi);
+    printf("\tColumna: "); scanf("%d", &torre.ccol);
 
+    printf("%d %d", torre.cfi, torre.ccol);
 };
 
 
 void fAlfil(){
 
-    printf("Escogiste la pieza \"Alfil\" \n\n");
+    printf("\n\tEscogiste la pieza \"Alfil\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
-    printf("Fila: "); scanf("%d", &alfil.cfi);
-    printf("Columna: "); scanf("%d", &alfil.ccol);
+    printf("\n\tFila: "); scanf("%d", &alfil.cfi);
+    printf("\tColumna: "); scanf("%d", &alfil.ccol);
 };
 
 
 void fCaballo(){
 
-    printf("Escogiste la pieza \"Caballo\" \n\n");
+    printf("\n\tEscogiste la pieza \"Caballo\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
-    printf("Fila: "); scanf("%d", &caballo.cfi);
-    printf("Columna: "); scanf("%d", &caballo.ccol);
+    printf("\n\tFila: "); scanf("%d", &caballo.cfi);
+    printf("\tColumna: "); scanf("%d", &caballo.ccol);
 };
 
 
 void fReina(){
 
-    printf("Escogiste la pieza \"Reina\" \n\n");
+    printf("\n\tEscogiste la pieza \"Reina\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
-    printf("Fila: "); scanf("%d", &reina.cfi);
-    printf("Columna: "); scanf("%d", &reina.ccol);
+    printf("\n\tFila: "); scanf("%d", &reina.cfi);
+    printf("\tColumna: "); scanf("%d", &reina.ccol);
 };
 
 
 void fRey(){
 
-    printf("Escogiste la pieza \"Rey\" \n\n");
+    printf("\n\tEscogiste la pieza \"Rey\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
-    printf("Fila: "); scanf("%d", &rey.cfi);
-    printf("Columna: "); scanf("%d", &rey.ccol);
+    printf("\n\tFila: "); scanf("%d", &rey.cfi);
+    printf("\tColumna: "); scanf("%d", &rey.ccol);
 };
