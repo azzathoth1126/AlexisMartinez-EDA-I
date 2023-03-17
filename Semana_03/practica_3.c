@@ -4,7 +4,7 @@ struct { //Estructura que contiene las coordenadas para las piezas
     int tAjedrez[8][8]; //Tablero de ajedrez
     int cfi;   //Fila
     int ccol;  //Columna
-    int a, b;  //Variables para cambiar
+    int a, b, cont;  //Variables para cambiar
 }torre, caballo, alfil, rey, reina;
 
 //Declaracion de estructuras
@@ -254,61 +254,54 @@ void fRey(){
     printf("\n\tFila: "); scanf("%d", &rey.cfi);
     printf("\tColumna: "); scanf("%d", &rey.ccol);
 
+    rey.cont = 1;
     rey.a = rey.ccol;
     rey.b = rey.cfi;
     rey.tAjedrez[--rey.a][--rey.b] = 1;
     if(rey.a>=0){
         rey.tAjedrez[--rey.a][rey.b] =3;
+        if (rey.b>=1){
+        rey.tAjedrez[rey.a][--rey.b] =3;
+        }
     }
-
-    rey.a = rey.ccol-1;
-    rey.b = rey.cfi-1;
-    if (rey.a>=0 && rey.b>=1){
-        rey.tAjedrez[--rey.a][--rey.b] =3;
-    }
-
+    
     rey.a = rey.ccol-1;
     rey.b = rey.cfi-1;
     if(rey.a<8){
         rey.tAjedrez[++rey.a][rey.b] =3;
-    }
-
-    rey.a = rey.ccol-1;
-    rey.b = rey.cfi-1;
-    if (rey.a<8 && rey.b<7){
-        rey.tAjedrez[++rey.a][++rey.b] =3;
+        if (rey.b<7){
+        rey.tAjedrez[rey.a][++rey.b] =3;
+        }
     }
 
     rey.a = rey.ccol-1;
     rey.b = rey.cfi-1;
     if(rey.b>=1){
         rey.tAjedrez[rey.a][--rey.b] =3;
-    }
-
-    rey.a = rey.ccol-1;
-    rey.b = rey.cfi-1;
-    if(rey.b>=1 && rey.a>7){
-        rey.tAjedrez[++rey.a][--rey.b] =3;
+        if(rey.a<7){
+        rey.tAjedrez[++rey.a][rey.b] =3;
+        }
     }
 
     rey.a = rey.ccol-1;
     rey.b = rey.cfi-1;
     if(rey.b<7){
-        rey.tAjedrez[++rey.a][rey.b] =3;
+        rey.tAjedrez[rey.a][++rey.b] =3;
+        if(rey.a>=1){
+        rey.tAjedrez[--rey.a][rey.b] =3;
+        }
     }
 
-    rey.a = rey.ccol-1;
-    rey.b = rey.cfi-1;
-    if(rey.b>7 && rey.a>=1){
-        rey.tAjedrez[--rey.a][++rey.b] =3;
-    }
+    printf("\nFilas   ");
+    for(int i=1; i<9; i++)
+        printf("%i ", (i));
+    printf("  Columnas\n");
 
     printf("\n");
-
     for(int x=0; x<8; x++){
-        for(int y=0; y<8; y++) printf("%d ", rey.tAjedrez[x][y]);
-        printf("\n");
+        printf("\t");
+        for(int y=0; y<8; y++ )printf("%d ", rey.tAjedrez[x][y]);
+        printf("  %i\n", rey.cont++);
     }
-
     printf("\n");
 }
