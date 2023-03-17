@@ -151,9 +151,9 @@ void fCaballo(){
     caballo.b = caballo.cfi;
     caballo.tAjedrez[--caballo.a][--caballo.b] =1;
 
-    caballo.a = caballo.a + 2;
+    caballo.a = caballo.a +2;
     if(caballo.a<=0 && caballo.b<0){
-        caballo.b = caballo.b - 1;    
+        caballo.b = caballo.b -1;    
         caballo.tAjedrez[caballo.a][caballo.b] =3;
     }
 
