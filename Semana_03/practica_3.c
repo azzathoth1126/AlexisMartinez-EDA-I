@@ -140,24 +140,19 @@ void fTorre(){
 
 void fCaballo(){
 
+    int a,b;
     caballo.cont=1;
 
     printf("\n\n\tEscogiste la pieza \"Caballo\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
-    printf("\n\tFila: "); scanf("%d", &caballo.cfi);
-    printf("\tColumna: "); scanf("%d", &caballo.ccol);
+    printf("\n\tFila: "); scanf(" %d", &caballo.cfi);
+    printf("\tColumna: "); scanf(" %d", &caballo.ccol);
 
-    caballo.a = caballo.ccol; 
-    caballo.b = caballo.cfi;
-    caballo.tAjedrez[--caballo.a][--caballo.b] =1;
-    caballo.a = caballo.a +2;
-    if (caballo.a <= 0){
-        if (caballo.b < 0){
-            caballo.b = caballo.b -1;    
-            caballo.tAjedrez[caballo.a][caballo.b] =3;
-        }
-    }
+    caballo.a = --caballo.ccol; 
+    caballo.b = --caballo.cfi; b = caballo.b;
+    for (a=caballo.a; a<=0; a=0) {caballo.tAjedrez[caballo.a-=2][caballo.b-=1]=3;}
 
+    caballo.tAjedrez[caballo.a][caballo.b]=1;
     printf("\nFilas   ");
     for(int i=1; i<9; i++)
         printf("%i ", (i));
