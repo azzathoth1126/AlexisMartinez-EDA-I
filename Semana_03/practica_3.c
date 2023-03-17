@@ -304,4 +304,4 @@ void fRey(){
         printf("  %i\n", rey.cont++);
     }
     printf("\n");
-}
+}//Rey listo
