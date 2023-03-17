@@ -150,11 +150,12 @@ void fCaballo(){
     caballo.a = caballo.ccol; 
     caballo.b = caballo.cfi;
     caballo.tAjedrez[--caballo.a][--caballo.b] =1;
-
     caballo.a = caballo.a +2;
-    if(caballo.a<=0 && caballo.b<0){
-        caballo.b = caballo.b -1;    
-        caballo.tAjedrez[caballo.a][caballo.b] =3;
+    if (caballo.a <= 0){
+        if (caballo.b < 0){
+            caballo.b = caballo.b -1;    
+            caballo.tAjedrez[caballo.a][caballo.b] =3;
+        }
     }
 
     printf("\nFilas   ");
