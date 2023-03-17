@@ -4,7 +4,8 @@ struct { //Estructura que contiene las coordenadas para las piezas
     int tAjedrez[8][8]; //Tablero de ajedrez
     int cfi;   //Fila
     int ccol;  //Columna
-    int cont;  //Variable para cambiar
+    //Variables para cambiar
+    int a, b, cont;
 }torre, caballo, alfil, rey, reina;
 
 //Declaracion de estructuras
@@ -14,7 +15,6 @@ void fAlfil();
 void fCaballo();
 void fReina();
 void fRey();
-
 
 int main(){ //Programa principal
 
@@ -63,7 +63,6 @@ int main(){ //Programa principal
 }
 
 
-//Arreglar para imprimir con apuntadores
 void fTabVacio(){
     int i, j, c1=0, c2=0; //fila y columna
     int tAjedrez[8][8];
@@ -91,7 +90,7 @@ void fTabVacio(){
         //Imprime las coordenadas de las columnas
         printf("  %i\n", (c2+=1));
     }
-}
+}//Arreglar para imprimir con apuntadores
 
 
 void fTorre(){
@@ -153,7 +152,13 @@ void fCaballo(){
 
     caballo.a = caballo.ccol; 
     caballo.b = caballo.cfi;
-    caballo.tAjedrez[--caballo.a][--caballo.b] = 1;
+    caballo.tAjedrez[--caballo.a][--caballo.b] =1;
+
+    --caballo.a;--caballo.a;
+    --caballo-b
+    if((caballo.a <= 0) && (caballo.b > 1)){
+        caballo.tAjedrez[caballo.a][caballo.b]=3;
+    }
 
     printf("\nFilas   ");
     for(int i=1; i<9; i++)
@@ -221,14 +226,13 @@ void fAlfil(){
 
 void fReina(){
 
-    reina.cont=0;
+    reina.cont=1;
 
     printf("\n\n\tEscogiste la pieza \"Reina\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &reina.cfi);
     printf("\tColumna: "); scanf("%d", &reina.ccol);
 
-    reina.cont=1;
     reina.a = reina.ccol;
     reina.b = reina.cfi;
     reina.tAjedrez[--reina.a][--reina.b] = 1;
@@ -293,7 +297,7 @@ void fRey(){
     if(rey.a>=0){
         rey.tAjedrez[--rey.a][rey.b] =3;
         if (rey.b>=1){
-        rey.tAjedrez[rey.a][--rey.b] =3;
+            rey.tAjedrez[rey.a][--rey.b] =3;
         }
     }
     
@@ -302,7 +306,7 @@ void fRey(){
     if(rey.a<8){
         rey.tAjedrez[++rey.a][rey.b] =3;
         if (rey.b<7){
-        rey.tAjedrez[rey.a][++rey.b] =3;
+            rey.tAjedrez[rey.a][++rey.b] =3;
         }
     }
 
@@ -311,7 +315,7 @@ void fRey(){
     if(rey.b>=1){
         rey.tAjedrez[rey.a][--rey.b] =3;
         if(rey.a<7){
-        rey.tAjedrez[++rey.a][rey.b] =3;
+            rey.tAjedrez[++rey.a][rey.b] =3;
         }
     }
 
@@ -320,7 +324,7 @@ void fRey(){
     if(rey.b<7){
         rey.tAjedrez[rey.a][++rey.b] =3;
         if(rey.a>=1){
-        rey.tAjedrez[--rey.a][rey.b] =3;
+            rey.tAjedrez[--rey.a][rey.b] =3;
         }
     }
 
