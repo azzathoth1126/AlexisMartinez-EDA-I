@@ -4,7 +4,7 @@ struct { //Estructura que contiene las coordenadas para las piezas
     int tAjedrez[8][8]; //Tablero de ajedrez
     int cfi;   //Fila
     int ccol;  //Columna
-    int a, b, cont;  //Variables para cambiar
+    int cont;  //Variable para cambiar
 }torre, caballo, alfil, rey, reina;
 
 //Declaracion de estructuras
@@ -145,7 +145,7 @@ void fTorre(){
 void fCaballo(){
 
     caballo.cont=1;
-    
+
     printf("\n\n\tEscogiste la pieza \"Caballo\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &caballo.cfi);
