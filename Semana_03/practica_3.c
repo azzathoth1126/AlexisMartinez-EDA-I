@@ -104,20 +104,27 @@ void fTorre(){
     torre.a = torre.ccol; 
     torre.b = torre.cfi;
     torre.tAjedrez[--torre.a][--torre.b] = 1;
- 
-    for(int i=0; torre.a>=0; i++) torre.tAjedrez[--torre.a][torre.b] =3;
-    torre.a = torre.ccol; 
+    for(int i=0; torre.a>=0; i++){
+        torre.tAjedrez[--torre.a][torre.b] =3;
+    }
 
-    for(int i=0; torre.a<8; i++) torre.tAjedrez[++torre.a][torre.b] =3;
+    torre.a = torre.ccol-1; 
+    torre.b = torre.cfi-1;
+    for(int i=0; torre.a<8; i++){
+        torre.tAjedrez[++torre.a][torre.b] =3;
+    }
 
-    //for(int i=0; torre.b>0; i++) torre.tAjedrez[torre.a][--torre.b] =3;
-    //torre.b = torre.cfi;
-
-    //for(int i=0; torre.b<7; i++) torre.tAjedrez[torre.a][++torre.b] =3;
-
-    torre.a = torre.ccol; 
-    torre.b = torre.cfi;
-    torre.tAjedrez[--torre.a][--torre.b] = 1;
+    torre.a = torre.ccol-1; 
+    torre.b = torre.cfi-1;
+    for(int i=0; torre.b>=1; i++){
+        torre.tAjedrez[torre.a][--torre.b] =3;
+    }
+    
+    torre.a = torre.ccol-1; 
+    torre.b = torre.cfi-1;
+    for(int i=0; torre.b<7; i++){
+        torre.tAjedrez[torre.a][++torre.b] =3;
+    }
 
     printf("\n");
 
@@ -136,6 +143,39 @@ void fAlfil(){
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &alfil.cfi);
     printf("\tColumna: "); scanf("%d", &alfil.ccol);
+
+    alfil.a = alfil.ccol; 
+    alfil.b = alfil.cfi;
+    alfil.tAjedrez[--alfil.a][--alfil.b] = 1;
+    for(int i=0; alfil.a>=0 && alfil.b>=1; i++){
+        alfil.tAjedrez[--alfil.a][--alfil.b] =3;
+    }
+
+    alfil.a = alfil.ccol-1; 
+    alfil.b = alfil.cfi-1;
+    for(int i=0; alfil.a<8 && alfil.b<7; i++){
+        alfil.tAjedrez[++alfil.a][++alfil.b] =3;
+    }
+
+    alfil.a = alfil.ccol-1; 
+    alfil.b = alfil.cfi-1;
+    for(int i=0; alfil.b>=1 && alfil.a<7; i++){
+        alfil.tAjedrez[++alfil.a][--alfil.b] =3;
+    }
+    
+    alfil.a = alfil.ccol-1; 
+    alfil.b = alfil.cfi-1;
+    for(int i=0; alfil.b<7 && alfil.a>=1; i++){
+        alfil.tAjedrez[--alfil.a][++alfil.b] =3;
+    }
+
+    printf("\n");
+    for(int x=0; x<8; x++){
+        for(int y=0; y<8; y++) printf("%d ", alfil.tAjedrez[x][y]);
+        printf("\n");
+    }
+
+    printf("\n");
 }
 
 
@@ -150,10 +190,60 @@ void fCaballo(){
 
 void fReina(){
 
+    int n1, m1;
+
     printf("\n\tEscogiste la pieza \"Reina\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &reina.cfi);
     printf("\tColumna: "); scanf("%d", &reina.ccol);
+
+    reina.a = reina.ccol; n1 = reina.a;
+    reina.b = reina.cfi; m1 = reina.b;
+    reina.tAjedrez[--reina.a][--reina.b] = 1;
+    for(int i=0; reina.a>=0; i++){
+        reina.tAjedrez[--reina.a][reina.b] =3;
+        if (reina.a>=0 && reina.b>=1){
+            reina.tAjedrez[--n1][--m1] =3;
+        }
+    }
+
+    reina.a = reina.ccol-1; n1 = reina.a;
+    reina.b = reina.cfi-1; m1 = reina.b;
+    for(int i=0; reina.a<8; i++){
+        reina.tAjedrez[++reina.a][reina.b] =3;
+        if (reina.a<8 && reina.b<7){
+            reina.tAjedrez[++n1][++m1] =3;
+        }
+    }
+
+    reina.a = reina.ccol-1; n1 = reina.a;
+    reina.b = reina.cfi-1; m1 = reina.b;
+    for(int i=0; reina.b>=1; i++){
+        reina.tAjedrez[reina.a][--reina.b] =3;
+        if (reina.b>=1 && reina.a<7){
+            reina.tAjedrez[++n1][--m1] =3;
+        }
+    }
+    
+    reina.a = reina.ccol-1; n1 = reina.a;
+    reina.b = reina.cfi-1; m1 = reina.b;
+    for(int i=0; reina.b<7; i++){
+        reina.tAjedrez[reina.a][++reina.b] =3;
+        if (reina.b<7 && reina.a>=1){
+            reina.tAjedrez[--n1][++m1] =3;
+        }
+    }
+
+    
+
+    printf("\n");
+
+    for(int x=0; x<8; x++){
+        for(int y=0; y<8; y++) printf("%d ", reina.tAjedrez[x][y]);
+        printf("\n");
+    }
+
+    printf("\n");
 }
 
 
@@ -163,4 +253,62 @@ void fRey(){
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &rey.cfi);
     printf("\tColumna: "); scanf("%d", &rey.ccol);
+
+    rey.a = rey.ccol;
+    rey.b = rey.cfi;
+    rey.tAjedrez[--rey.a][--rey.b] = 1;
+    if(rey.a>=0){
+        rey.tAjedrez[--rey.a][rey.b] =3;
+    }
+
+    rey.a = rey.ccol-1;
+    rey.b = rey.cfi-1;
+    if (rey.a>=0 && rey.b>=1){
+        rey.tAjedrez[--rey.a][--rey.b] =3;
+    }
+
+    rey.a = rey.ccol-1;
+    rey.b = rey.cfi-1;
+    if(rey.a<8){
+        rey.tAjedrez[++rey.a][rey.b] =3;
+    }
+
+    rey.a = rey.ccol-1;
+    rey.b = rey.cfi-1;
+    if (rey.a<8 && rey.b<7){
+        rey.tAjedrez[++rey.a][++rey.b] =3;
+    }
+
+    rey.a = rey.ccol-1;
+    rey.b = rey.cfi-1;
+    if(rey.b>=1){
+        rey.tAjedrez[rey.a][--rey.b] =3;
+    }
+
+    rey.a = rey.ccol-1;
+    rey.b = rey.cfi-1;
+    if(rey.b>=1 && rey.a>7){
+        rey.tAjedrez[++rey.a][--rey.b] =3;
+    }
+
+    rey.a = rey.ccol-1;
+    rey.b = rey.cfi-1;
+    if(rey.b<7){
+        rey.tAjedrez[++rey.a][rey.b] =3;
+    }
+
+    rey.a = rey.ccol-1;
+    rey.b = rey.cfi-1;
+    if(rey.b>7 && rey.a>=1){
+        rey.tAjedrez[--rey.a][++rey.b] =3;
+    }
+
+    printf("\n");
+
+    for(int x=0; x<8; x++){
+        for(int y=0; y<8; y++) printf("%d ", rey.tAjedrez[x][y]);
+        printf("\n");
+    }
+
+    printf("\n");
 }
