@@ -96,7 +96,9 @@ void fTabVacio(){
 
 void fTorre(){
 
-    printf("\n\tEscogiste la pieza \"Torre\" \n\n");
+    torre.cont=1;
+
+    printf("\n\n\tEscogiste la pieza \"Torre\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &torre.cfi);
     printf("\tColumna: "); scanf("%d", &torre.ccol);
@@ -126,20 +128,53 @@ void fTorre(){
         torre.tAjedrez[torre.a][++torre.b] =3;
     }
 
+    printf("\nFilas   ");
+    for(int i=1; i<9; i++)
+        printf("%i ", (i));
+    printf("  Columnas\n");
+
     printf("\n");
-
     for(int x=0; x<8; x++){
-        for(int y=0; y<8; y++) printf("%d ", torre.tAjedrez[x][y]);
-        printf("\n");
+        printf("\t");
+        for(int y=0; y<8; y++ )printf("%d ", torre.tAjedrez[x][y]);
+        printf("  %i\n", torre.cont++);
     }
+    printf("\n");
+}//Torre lista
 
+void fCaballo(){
+
+    caballo.cont=1;
+    
+    printf("\n\n\tEscogiste la pieza \"Caballo\" \n\n");
+    printf("Dime en que parte del tablero quieres colocar la pieza\n");
+    printf("\n\tFila: "); scanf("%d", &caballo.cfi);
+    printf("\tColumna: "); scanf("%d", &caballo.ccol);
+
+    caballo.a = caballo.ccol; 
+    caballo.b = caballo.cfi;
+    caballo.tAjedrez[--caballo.a][--caballo.b] = 1;
+
+    printf("\nFilas   ");
+    for(int i=1; i<9; i++)
+        printf("%i ", (i));
+    printf("  Columnas\n");
+
+    printf("\n");
+    for(int x=0; x<8; x++){
+        printf("\t");
+        for(int y=0; y<8; y++ )printf("%d ", caballo.tAjedrez[x][y]);
+        printf("  %i\n", caballo.cont++);
+    }
     printf("\n");
 }
 
 
 void fAlfil(){
 
-    printf("\n\tEscogiste la pieza \"Alfil\" \n\n");
+    alfil.cont=1;
+
+    printf("\n\n\tEscogiste la pieza \"Alfil\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &alfil.cfi);
     printf("\tColumna: "); scanf("%d", &alfil.ccol);
@@ -169,87 +204,84 @@ void fAlfil(){
         alfil.tAjedrez[--alfil.a][++alfil.b] =3;
     }
 
+    printf("\nFilas   ");
+    for(int i=1; i<9; i++)
+        printf("%i ", (i));
+    printf("  Columnas\n");
+
     printf("\n");
     for(int x=0; x<8; x++){
-        for(int y=0; y<8; y++) printf("%d ", alfil.tAjedrez[x][y]);
-        printf("\n");
+        printf("\t");
+        for(int y=0; y<8; y++ )printf("%d ", alfil.tAjedrez[x][y]);
+        printf("  %i\n", alfil.cont++);
     }
-
     printf("\n");
-}
-
-
-void fCaballo(){
-
-    printf("\n\tEscogiste la pieza \"Caballo\" \n\n");
-    printf("Dime en que parte del tablero quieres colocar la pieza\n");
-    printf("\n\tFila: "); scanf("%d", &caballo.cfi);
-    printf("\tColumna: "); scanf("%d", &caballo.ccol);
-}
+}//Alfil listo
 
 
 void fReina(){
 
-    int n1, m1;
+    reina.cont=0;
 
-    printf("\n\tEscogiste la pieza \"Reina\" \n\n");
+    printf("\n\n\tEscogiste la pieza \"Reina\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &reina.cfi);
     printf("\tColumna: "); scanf("%d", &reina.ccol);
 
-    reina.a = reina.ccol; n1 = reina.a;
-    reina.b = reina.cfi; m1 = reina.b;
+    reina.cont=1;
+    reina.a = reina.ccol;
+    reina.b = reina.cfi;
     reina.tAjedrez[--reina.a][--reina.b] = 1;
-    for(int i=0; reina.a>=0; i++){
-        reina.tAjedrez[--reina.a][reina.b] =3;
-        if (reina.a>=0 && reina.b>=1){
-            reina.tAjedrez[--n1][--m1] =3;
-        }
-    }
+    for(int i=0; reina.a>=0; i++) reina.tAjedrez[--reina.a][reina.b] =3;
 
-    reina.a = reina.ccol-1; n1 = reina.a;
-    reina.b = reina.cfi-1; m1 = reina.b;
-    for(int i=0; reina.a<8; i++){
-        reina.tAjedrez[++reina.a][reina.b] =3;
-        if (reina.a<8 && reina.b<7){
-            reina.tAjedrez[++n1][++m1] =3;
-        }
-    }
+    reina.a = reina.ccol;
+    reina.b = reina.cfi;
+    for(int i=0; reina.a>=0 && reina.b>=1; i++) reina.tAjedrez[--reina.a][--reina.b] =3;
 
-    reina.a = reina.ccol-1; n1 = reina.a;
-    reina.b = reina.cfi-1; m1 = reina.b;
-    for(int i=0; reina.b>=1; i++){
-        reina.tAjedrez[reina.a][--reina.b] =3;
-        if (reina.b>=1 && reina.a<7){
-            reina.tAjedrez[++n1][--m1] =3;
-        }
-    }
+    reina.a = reina.ccol-1;
+    reina.b = reina.cfi-1;
+    for(int i=0; reina.a<8; i++) reina.tAjedrez[++reina.a][reina.b] =3;
+
+    reina.a = reina.ccol-1;
+    reina.b = reina.cfi-1;
+    for(int i=0; reina.a<8 && reina.b<7; i++) reina.tAjedrez[++reina.a][++reina.b] =3;
+
+    reina.a = reina.ccol-1;
+    reina.b = reina.cfi-1; 
+    for(int i=0; reina.b>=1; i++) reina.tAjedrez[reina.a][--reina.b] =3;
+
+    reina.a = reina.ccol-1;
+    reina.b = reina.cfi-1; 
+    for(int i=0; reina.b>=1 && reina.a<7; i++) reina.tAjedrez[++reina.a][--reina.b] =3;
     
-    reina.a = reina.ccol-1; n1 = reina.a;
-    reina.b = reina.cfi-1; m1 = reina.b;
-    for(int i=0; reina.b<7; i++){
-        reina.tAjedrez[reina.a][++reina.b] =3;
-        if (reina.b<7 && reina.a>=1){
-            reina.tAjedrez[--n1][++m1] =3;
-        }
-    }
+    reina.a = reina.ccol-1;
+    reina.b = reina.cfi-1; 
+    for(int i=0; reina.b<7; i++) reina.tAjedrez[reina.a][++reina.b] =3;
 
-    
+    reina.a = reina.ccol-1;
+    reina.b = reina.cfi-1; 
+    for(int i=0; reina.b<7 && reina.a>=1; i++) reina.tAjedrez[--reina.a][++reina.b] =3;
+
+    reina.tAjedrez[--reina.ccol][--reina.cfi] = 1;
+
+    printf("\nFilas   ");
+    for(int i=1; i<9; i++)
+        printf("%i ", (i));
+    printf("  Columnas\n");
 
     printf("\n");
-
     for(int x=0; x<8; x++){
-        for(int y=0; y<8; y++) printf("%d ", reina.tAjedrez[x][y]);
-        printf("\n");
+        printf("\t");
+        for(int y=0; y<8; y++ )printf("%d ", reina.tAjedrez[x][y]);
+        printf("  %i\n", reina.cont++);
     }
-
     printf("\n");
-}
+}//Reina lista
 
 
 void fRey(){
 
-    printf("\n\tEscogiste la pieza \"Rey\" \n\n");
+    printf("\n\n\tEscogiste la pieza \"Rey\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf("%d", &rey.cfi);
     printf("\tColumna: "); scanf("%d", &rey.ccol);
