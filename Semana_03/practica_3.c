@@ -2,10 +2,9 @@
 
 struct { //Estructura que contiene las coordenadas para las piezas
     int tAjedrez[8][8]; //Tablero de ajedrez
-    int cfi;   //Fila
-    int ccol;  //Columna
-    //Variables para cambiar
-    int a, b, cont;
+    int cfi;            //Fila
+    int ccol;           //Columna
+    int a, b, cont;     //Variables para cambiar
 }torre, caballo, alfil, rey, reina;
 
 //Declaracion de estructuras
@@ -66,8 +65,6 @@ int main(){ //Programa principal
 void fTabVacio(){
     int i, j, c1=0, c2=0; //fila y columna
     int tAjedrez[8][8];
-    int *(*ap);
-    ap = &tAjedrez;
 
     /*Rellena el arreglo bidimensional con 0*/
     for (i=0; i<8; tAjedrez[i++][j]){
@@ -154,10 +151,10 @@ void fCaballo(){
     caballo.b = caballo.cfi;
     caballo.tAjedrez[--caballo.a][--caballo.b] =1;
 
-    --caballo.a;--caballo.a;
-    --caballo-b
-    if((caballo.a <= 0) && (caballo.b > 1)){
-        caballo.tAjedrez[caballo.a][caballo.b]=3;
+    caballo.a = caballo.a + 2;
+    if(caballo.a<=0 && caballo.b<0){
+        caballo.b = caballo.b - 1;    
+        caballo.tAjedrez[caballo.a][caballo.b] =3;
     }
 
     printf("\nFilas   ");
