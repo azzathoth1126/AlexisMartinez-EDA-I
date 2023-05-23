@@ -1,46 +1,13 @@
-def suma():
-    print("\nDame dos valores para sumar")
-    x = int(input("Valor 1: "))
-    y = int(input("Valor 2:"))
-
-    z = x + y
-
-    print("\nEl valor de {} mas {} es: {}".format(x, y, z))
-
-
-def resta():
-    print("\nDame dos valores para restar")
-    x = int(input("Valor 1: "))
-    y = int(input("Valor 2:"))
-
-    z = x - y
-
-    print("\nEl valor de {} menos {} es: {}".format(x, y, z))
-
-
-def multiplicacion():
-    print("\nDame dos valores para multiplicarlos")
-    x = int(input("Valor 1: "))
-    y = int(input("Valor 2:"))
-
-    z = x * y
-
-    print("\nEl valor de {} por {} es: {}".format(x, y, z))
-
-
-def divicion():
-    print("\nDame dos valores para dividirlos")
-    x = int(input("Valor 1: "))
-    y = int(input("Valor 2:"))
-
-    z = x / y
-
-    print("\nEl valor de {} entre {} es: {}".format(x, y, z))
+def numeros_usar():
+    a = int(input(a))
 
 
 def calculadora(num):
     if num == 1:
-        suma()
+        numeros()
+        if num:
+            print()
+        
     elif num == 2:
         resta()
     elif num == 3:
