@@ -41,9 +41,9 @@ if __name__ == '__main__':
         elif x == 2:
             delet_book(bilioteca)
         elif x == 3:
-            order_books()
+            order_books(biblioteca)
         elif x == 4:
-            books()
+            books(biblioteca)
         else:
             x = 5
 
