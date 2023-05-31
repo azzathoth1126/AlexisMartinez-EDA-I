@@ -32,9 +32,7 @@ if __name__ == '__main__':
         2. Borrar libro
         3. Ordenar biblioteca
         4. Ver biblioteca
-        5. Salir
-
-        '''))
+        5. Salir \n'''))
 
         if x == 1:
             add_book(biblioteca)
