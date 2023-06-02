@@ -1,9 +1,9 @@
 def add_book(biblioteca):
 
     titulo = str(input("\nTitulo: "))
-    isbn = int(input("IDN: "))
+    idn = int(input("IDN: "))
 
-    elemento = {'Titulo':titulo, 'IDN':isbn}
+    elemento = {'Titulo':titulo, 'IDN':idn}
 
     biblioteca.append(elemento)
 
@@ -20,14 +20,11 @@ def delet_book(biblioteca):
 
 
 def order_books(biblioteca):
-
-    biblioteca_ordenada = sorted(biblioteca, key=lambda x: x['Titulo'])
-
-    return biblioteca_ordenada
+    lista_odenada = sorted(biblioteca, key=lambda x: x['IDN'])
+    return lista_odenada
 
 
 def books(biblioteca):
-    print("\n   Libro - IDN")
     n = 1
     for libro in biblioteca:    
         print("{}. {}".format(n, libro))
