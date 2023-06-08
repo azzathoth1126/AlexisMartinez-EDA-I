@@ -1,11 +1,7 @@
-def decimal_a_binario(numero):
-    if numero == 0:
-        return '0'
-    resultado = ''
-    while numero > 0:
-        resultado = str(numero % 2) + resultado
-        numero //= 2
-    return resultado
+def binario(numero):
+    if numero > 1:
+        binario(numero // 2)  # Llamada recursiva dividiendo el número entre 2
+    print(numero % 2, end='')  # Imprimir el residuo de la división por 2
 
 
 def recur_fibo(n):
@@ -16,29 +12,30 @@ def recur_fibo(n):
 
 
 if __name__ == '__main__':
-
-    opcion = 1 
+    opcion = 1
 
     while opcion != 3:
+        print('''\nBienvenidos, por favor elija la opción que desee:
 
-        print('''\nBienvenidos, por favor elija la opcion que desee:
+        1) Conversión de bases
+        2) Serie de Fibonacci
+        3) Salir\n''')
 
-        Conversion de bases
-        Serie de Fibonacci
-        Salir\n''')
-
-        opcion = int(input("Elija una opcion: "))
+        opcion = int(input("Elija una opción: "))
 
         if opcion == 1:
-            numero = int(input("Dame un numero: "))
-            print(decimal_a_binario(numero))
+            numero = int(input("Dame un número: "))
+            print("El número binario es: ", end='')
+            binario(numero)
+            print()
         elif opcion == 2:
-            n = int(input("Dame un numero: "))
+            n = int(input("Dame un número: "))
             print("Secuencia Fibonacci: ")
             for i in range(n):
                 print(recur_fibo(i))
         elif opcion != 3:
-            print("Debes digitar un numero entre 1 y 3")
+            print("Debes digitar un número entre 1 y 3")
         else:
-            print("Adios")
+            print("Adiós")
+        print("\n")
         print("=*="*15)
