@@ -1,14 +1,14 @@
-def binario(numero):
+def recursividad_binario(numero):
     if numero > 1:
-        binario(numero // 2)  # Llamada recursiva dividiendo el número entre 2
+        recursividad_binario(numero // 2)  # Llamada recursiva dividiendo el número entre 2
     print(numero % 2, end='')  # Imprimir el residuo de la división por 2
 
 
-def recur_fibo(n):
+def recursividad_fibo(n):
     if n <= 1:
         return n
     else:
-        return recur_fibo(n - 1) + recur_fibo(n - 2)
+        return recursividad_fibo(n - 1) + recursividad_fibo(n - 2)
 
 
 if __name__ == '__main__':
@@ -25,14 +25,14 @@ if __name__ == '__main__':
 
         if opcion == 1:
             numero = int(input("Dame un número: "))
-            print("El número binario es: ", end='')
-            binario(numero)
+            print("\n\tEl número binario es: ", end='')
+            recursividad_binario(numero)
             print()
         elif opcion == 2:
             n = int(input("Dame un número: "))
-            print("Secuencia Fibonacci: ")
+            print("\n\tSecuencia Fibonacci: ")
             for i in range(n):
-                print(recur_fibo(i))
+                print(recursividad_fibo(i))
         elif opcion != 3:
             print("Debes digitar un número entre 1 y 3")
         else:
