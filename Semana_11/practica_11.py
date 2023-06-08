@@ -1,7 +1,7 @@
 def recursividad_binario(numero):
     if numero > 1:
-        recursividad_binario(numero // 2)  # Llamada recursiva dividiendo el número entre 2
-    print(numero % 2, end='')  # Imprimir el residuo de la división por 2
+        recursividad_binario(numero // 2) 
+    print(numero % 2, end='')
 
 
 def recursividad_fibo(n):
