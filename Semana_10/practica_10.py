@@ -49,7 +49,7 @@ if __name__ == '__main__':
         2. Borrar libro
         3. Ordenar biblioteca
         4. Ver biblioteca
-         5. Salir \n\n'''))
+        5. Salir \n\n'''))
 
         if x == 1:
             add_book(biblioteca)
@@ -62,4 +62,3 @@ if __name__ == '__main__':
             show_books(biblioteca)
         else:
             x = 5
-
