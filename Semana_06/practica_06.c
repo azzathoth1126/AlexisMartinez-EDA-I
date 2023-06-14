@@ -124,7 +124,8 @@ int main() {
 
     if (isPalindrome(palabra)) {
         printf("%s es un palíndromo.\n", palabra);
-    } else {
+    } 
+    else {
         printf("%s no es un palíndromo.\n", palabra);
     }
 
