@@ -141,18 +141,28 @@ void fTorre(){
 void fCaballo(){
 
     int a,b;
-    caballo.cont=1;
+    int i = 0;
+    int j = 0;
+    caballo.cont = 1;
 
     printf("\n\n\tEscogiste la pieza \"Caballo\" \n\n");
     printf("Dime en que parte del tablero quieres colocar la pieza\n");
     printf("\n\tFila: "); scanf(" %d", &caballo.cfi);
     printf("\tColumna: "); scanf(" %d", &caballo.ccol);
 
-    caballo.a = --caballo.ccol; 
-    caballo.b = --caballo.cfi; b = caballo.b;
-    for (a=caballo.a; a<=0; a=0) {caballo.tAjedrez[caballo.a-=2][caballo.b-=1]=3;}
+    for (i = 0; i < 8; i++){ //Lleno el tablero con ceros
+        for (j = 0; j <= 8; j++)
+            caballo.tAjedrez [i][j] = 0;
+    }
 
-    caballo.tAjedrez[caballo.a][caballo.b]=1;
+    caballo.b = caballo.ccol--; //Introduzco la pieza al tablero
+    caballo.a = caballo.cfi--;
+    caballo.tAjedrez[caballo.a][caballo.b] = 1; 
+
+    caballo.a - 2; caballo    
+    //for (a=caballo.a; a<=0; a=0) {caballo.tAjedrez[caballo.a-=2][caballo.b-=1]=3;}
+
+    /*caballo.tAjedrez[caballo.a][caballo.b]=1;
     printf("\nFilas   ");
     for(int i=1; i<9; i++)
         printf("%i ", (i));
@@ -163,7 +173,7 @@ void fCaballo(){
         printf("\t");
         for(int y=0; y<8; y++ )printf("%d ", caballo.tAjedrez[x][y]);
         printf("  %i\n", caballo.cont++);
-    }
+    }*/
     printf("\n");
 }
 
@@ -229,7 +239,7 @@ void fReina(){
     reina.a = reina.ccol;
     reina.b = reina.cfi;
     reina.tAjedrez[--reina.a][--reina.b] = 1;
-    for(int i=0; reina.a>=0; i++) reina.tAjedrez[--reina.a][reina.b] =3;
+    for(int i=0; reina.a>=0; i++) reina.tAjedrez[--reina.a][reina.b] = 'R';
 
     reina.a = reina.ccol;
     reina.b = reina.cfi;
@@ -237,7 +247,7 @@ void fReina(){
 
     reina.a = reina.ccol-1;
     reina.b = reina.cfi-1;
-    for(int i=0; reina.a<8; i++) reina.tAjedrez[++reina.a][reina.b] =3;
+    for(int i=0; reina.a<8; i++) reina.tAjedrez[++reina.a][reina.b] = 'R';
 
     reina.a = reina.ccol-1;
     reina.b = reina.cfi-1;
@@ -245,7 +255,7 @@ void fReina(){
 
     reina.a = reina.ccol-1;
     reina.b = reina.cfi-1; 
-    for(int i=0; reina.b>=1; i++) reina.tAjedrez[reina.a][--reina.b] =3;
+    for(int i=0; reina.b>=1; i++) reina.tAjedrez[reina.a][--reina.b] = 'R';
 
     reina.a = reina.ccol-1;
     reina.b = reina.cfi-1; 
@@ -253,13 +263,13 @@ void fReina(){
     
     reina.a = reina.ccol-1;
     reina.b = reina.cfi-1; 
-    for(int i=0; reina.b<7; i++) reina.tAjedrez[reina.a][++reina.b] =3;
+    for(int i=0; reina.b<7; i++) reina.tAjedrez[reina.a][++reina.b] = 'R';
 
     reina.a = reina.ccol-1;
     reina.b = reina.cfi-1; 
     for(int i=0; reina.b<7 && reina.a>=1; i++) reina.tAjedrez[--reina.a][++reina.b] =3;
 
-    reina.tAjedrez[--reina.ccol][--reina.cfi] = 1;
+    //reina.tAjedrez[--reina.ccol][--reina.cfi] = 1;
 
     printf("\nFilas   ");
     for(int i=1; i<9; i++)
