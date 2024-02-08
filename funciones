@@ -1,0 +1,76 @@
+//Define una variable bool 
+#include <stdbool.h>
+
+int main() {
+    bool esVerdadero = true;
+    bool esFalso = false;
+
+    // Utiliza las variables booleanas
+    if (esVerdadero) {
+        printf("Es verdadero\n");
+    }
+
+    if (!esFalso) {
+        printf("No es falso\n");
+    }
+
+    return 0;
+}
+
+
+
+//Función que regresa el tamaño de un arreglo
+#include <stdio.h>
+
+int obtenerTamanoArreglo(int arreglo[]) {
+    // Calcula el tamaño del arreglo dividiendo el tamaño total del arreglo
+    // por el tamaño de un elemento del arreglo.
+    return sizeof(arreglo) / sizeof(arreglo[0]);
+}
+
+int main() {
+    int miArreglo[] = {1, 2, 3, 4, 5};
+    int tamano = obtenerTamanoArreglo(miArreglo);
+    printf("El tamaño del arreglo es: %d\n", tamano);
+    return 0;
+}
+
+
+
+//Función que regresa el tamaño de un arreglo
+#include <stdio.h>
+
+int obtenerTamanoArreglo(int arreglo[], int tamano) {
+    return tamano;
+}
+
+int main() {
+    int miArreglo[] = {1, 2, 3, 4, 5};
+    int tamano = sizeof(miArreglo) / sizeof(miArreglo[0]);
+    printf("El tamaño del arreglo es: %d\n", obtenerTamanoArreglo(miArreglo, tamano));
+    return 0;
+}
+
+
+
+//Función swap con punteros 
+#include <stdio.h>
+
+void swap(int *ptr1, int *ptr2) {
+    int temp = *ptr1;
+    *ptr1 = *ptr2;
+    *ptr2 = temp;
+}
+
+int main() {
+    int a = 5;
+    int b = 10;
+
+    printf("Antes del intercambio: a = %d, b = %d\n", a, b);
+
+    swap(&a, &b);
+
+    printf("Después del intercambio: a = %d, b = %d\n", a, b);
+
+    return 0;
+}
