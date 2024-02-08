@@ -74,3 +74,26 @@ int main() {
 
     return 0;
 }
+
+
+
+//Función que imprime un arreglo
+#include <stdio.h>
+
+void imprimir(int arreglo[], int tamano) {
+    printf("Arreglo: [");
+    for (int i = 0; i < tamano; i++) {
+        printf("%d", arreglo[i]);
+        if (i < tamano - 1) {
+            printf(", ");
+        }
+    }
+    printf("]\n");
+}
+
+int main() {
+    int miArreglo[] = {1, 2, 3, 4, 5};
+    int tamano = sizeof(miArreglo) / sizeof(miArreglo[0]);
+    imprimir(miArreglo, tamano);
+    return 0;
+}
