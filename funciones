@@ -97,3 +97,57 @@ int main() {
     imprimir(miArreglo, tamano);
     return 0;
 }
+
+
+
+
+//Switch
+¡Entendido! Creo que estás hablando sobre cómo seleccionar una opción de un conjunto de datos utilizando un bucle `while` o `for`. Si es así, aquí tienes un ejemplo de cómo puedes hacerlo en C utilizando un bucle `while`:
+
+```c
+#include <stdio.h>
+
+int main() {
+    int opcion;
+
+    printf("Selecciona una opción:\n");
+    printf("1. Opción 1\n");
+    printf("2. Opción 2\n");
+    printf("3. Opción 3\n");
+    printf("4. Salir\n");
+
+    // Solicitar al usuario que seleccione una opción hasta que ingrese una opción válida
+    while (1) {
+        printf("Ingresa tu opción: ");
+        scanf("%d", &opcion);
+
+        if (opcion >= 1 && opcion <= 4) {
+            break; // Salir del bucle si la opción es válida
+        } else {
+            printf("Opción inválida. Por favor, selecciona una opción válida.\n");
+            // Limpiar el buffer de entrada para evitar bucles infinitos en caso de entrada no válida
+            while (getchar() != '\n');
+        }
+    }
+
+    // Procesar la opción seleccionada
+    switch (opcion) {
+        case 1:
+            printf("Seleccionaste la opción 1.\n");
+            break;
+        case 2:
+            printf("Seleccionaste la opción 2.\n");
+            break;
+        case 3:
+            printf("Seleccionaste la opción 3.\n");
+            break;
+        case 4:
+            printf("Saliendo...\n");
+            break;
+    }
+
+    return 0;
+}
+```
+
+En este ejemplo, se usa un bucle `while` para solicitar al usuario que seleccione una opción hasta que ingrese una opción válida (del 1 al 4). Una vez que se ha seleccionado una opción válida, se sale del bucle y se procesa la opción seleccionada utilizando una declaración `switch`.
